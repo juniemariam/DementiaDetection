@@ -2,7 +2,8 @@
 ### Description about this work:
 Accomplished early detection of dementia as measured by an 80% classification accuracy using SVM by analyzing
 MRI images and training machine learning models to differentiate between Demented and Non-Demented patients.
-● Utilized: Python, Pandas, Scikit-Learn, Random Forest, SVM, XGBoost, MRI Data from OASIS, MMSE, Feature
+
+Technologies Used: Python, Pandas, Scikit-Learn, Random Forest, SVM, XGBoost, MRI Data from OASIS, MMSE, Feature
 Importance Analysis
 
 ### What is Dementia ?
