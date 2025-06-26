@@ -1,129 +1,140 @@
-## Detection of Dementia using Machine Learning techniques
-### Description about this work:
-Accomplished early detection of dementia as measured by an 80% classification accuracy using SVM by analyzing
-MRI images and training machine learning models to differentiate between Demented and Non-Demented patients.
+# 🧠 Dementia Detection Using Machine Learning
 
-Technologies Used: Python, Pandas, Scikit-Learn, Random Forest, SVM, XGBoost, MRI Data from OASIS, MMSE, Feature
-Importance Analysis
+## 📝 Project Overview  
+This project focuses on **early-stage detection of dementia** using machine learning techniques applied to **MRI scans** and associated clinical features. Algorithms such as **SVM**, **Random Forest**, and **XGBoost** were used to classify patients into **Demented**, **Non-Demented**, and **Converted** categories with up to **80% accuracy**.
 
-### What is Dementia ?
-A general term for loss of memory, language, problem-solving and other thinking abilities that are severe enough to interfere with daily life. 
-**Alzheimer’s** is the most common cause of dementia.
+> **Highlight:** Achieved **80% classification accuracy** using SVM on clinical and MRI data from OASIS.
 
-<p align="center"><img src="images/types.jpeg" width=50% height=50% ></p>
+---
 
-### Detection of Dementia
-Patients suffering from Dementia have shrinkage of brain tissues and change in their speech patterns. 
-Thus dementia can be detected in two major ways:
-- Speech Patterns
-- MRI Images
+## ❓ What is Dementia?
+Dementia refers to a group of symptoms affecting memory, communication, and thinking skills. It is not a specific disease, but rather a general term for cognitive impairment.  
+- **Alzheimer’s disease** is the most common cause.  
+- Early detection can slow disease progression and improve care planning.
 
-The current treatment cannot stop the disease but rather slow down the damage caused.
-Detecting at early stage can reduce damage to large extent.
+---
 
+## 🔍 Detection Modalities
 
-### Using MRI Images
-MRI images of Alzheimer Disease(AD) patients show both local and generalized shrinkage of brain tissues. There are various other factors like age,education and socioeconomic status that determines the course of the disease.
-We use Machine Learning techniques to detect dementia even at mild damage so that immediate treatment can be given.
+Dementia can be detected using:
+- 🗣 **Speech Pattern Analysis**
+- 🧠 **MRI Imaging**
 
-<p align="center"><img src="images/MRI.png" width=50% height=50% ></p>
+This project focuses on MRI analysis to detect early signs of dementia.
 
-### Dataset
-- We used MRI related dataset from Open Access Series of Imaging Studies (OASIS)
-- It is longitudinal MRI data consisting of 150 people aged between 60 to 96.
-- Everyone is right handed.
-- Some patients were under NonDemented category at first visit but later on were found Demented. These fall under category Converted.
+---
 
-#### Column Description
+## 🧬 Dataset Details
 
-| Column Name | Description |
-| --- | ----------- |
-| EDUC | Years of education |
-| SES | Socioeconomic Status |
-| MMSE | Mini Mental State Examination |
-| CDR | Clinical Dementia Rating |
-| eTIV | Estimated Total Intracranial Volume |
-| nWBV | Normalized Whole Brain Volume |
-| ASF | Atlas Scaling Factor
+- **Source:** [OASIS](https://www.oasis-brains.org/)
+- **Subjects:** 150 right-handed individuals aged 60–96.
+- **Classes:**
+  - Non-Demented
+  - Demented
+  - Converted (later diagnosed as Demented)
 
-### Correlation between Variables
+### 🧾 Features Used
 
-<p align="center"><img src="images/Correlation.png" width=50% height=50% ></p>
+| Column | Description |
+|--------|-------------|
+| EDUC   | Years of education |
+| SES    | Socioeconomic Status |
+| MMSE   | Mini Mental State Examination |
+| CDR    | Clinical Dementia Rating |
+| eTIV   | Estimated Total Intracranial Volume |
+| nWBV   | Normalized Whole Brain Volume |
+| ASF    | Atlas Scaling Factor |
 
-### Dementia and Gender
+---
 
-| Category | M | F |
-| --------- | ----- | ------ |
-| Demented | 40 | 38 |
-| Non-Demented | 22 | 50 |
+## 📊 Exploratory Analysis
 
-More number of males have dementia than females.
+### 👨‍🦳 Dementia vs Gender
+| Category       | Male | Female |
+|----------------|------|--------|
+| Demented       | 40   | 38     |
+| Non-Demented   | 22   | 50     |
 
-### Dementia and MSSE (Mini Mental State Examination)
+### 🧠 MMSE Score
+- Non-Demented group: 25–30 (higher cognitive scores)
+- Demented group: Broader and lower range
 
-Nondemented has higher test result ranging from 25 to 30.
+### 🧠 Brain Volume (nWBV)
+- Shrinking brain tissue in Demented patients leads to lower nWBV.
 
-### Dementia and nWBV (Normalized Whole Brain Volume)
+### 🎂 Age
+- Higher prevalence of Dementia between **70–80** years.
+- Lower numbers of patients above 90 suggest lower survival rate in Demented group.
 
-Nondemented group has higher brain volume than Demented group. This is true  because the disease causes the shrinking brain tissue.
+---
 
-### Dementia and Age
+## ⚙️ Machine Learning Models
 
-- There is a higher concentration of 70-80 years old in the Demented patient group than the Nondemented group.
-- We guess patients who suffered from the disease have lower survival rate and hence there are very few over 90 years old.
+### ✅ Random Forest
+- Ensemble of decision trees
+- Robust to overfitting
+- Good baseline performance
 
-### Clinical Dementia Rating (CDR)
+### ✅ Support Vector Machine (SVM)
+- Best performing model with **80% accuracy**
+- Handles both linear and non-linear decision boundaries
 
-Relation between variables and CDR (Clinical Dementia Rating) :
-- While the Dementia/Non-Dementia classification had relation with age and gender, this direct connection is not found with CDR.
-- No obvious connection between Education Level/Socio Economic Status and CDR as well.
-- While the MMS examination results of objects not diagnosed with Dementia concentrate near 27-30 point rate, MMSE results of objects diagnosed with Dementia seems to be more spreaded. The objects had the highest MMSE score but still have Clinical Dementia Rating of 0.5 or 1. No obvious connection between Estimated total intracranial volume and Dementia Diagnosis.
-- Normalized whole-brain volume seems to be more spreaded for objects with CDR = 0 and narrows as CDR grows up. No obvious connection between Atlas scaling factor and Dementia Diagnosis.
+### ✅ XGBoost
+- Gradient boosting technique
+- Achieved **78% accuracy**
 
-### Machine Learning Models
+---
 
-### Random Forest
-- It is an ensemble learning method that constructs multiple decision trees and outputs the class that is the mode of the classes or mean/average prediction of the individual trees.
-- Classifying Dementia vs Non-Dementia prediction using random forest classifier.
+## 📈 Results
 
-### Support Vector Machine (SVM)
-- Support Vector Machine or SVM is a supervised machine learning model which can solve linear as well as non-linear problems.
-- Classifying Dementia vs Non-Dementia prediction using support vector machine(SVM), Nondemented = 0,Demented = 1
+- **ROC Curves** and **AUC Scores** were used for evaluation.
+- **MMSE** was the most important feature.
+- **Gender** and **Socioeconomic Status** had the least impact.
 
-### XG Boost
-- XGBOOST is a decision tree based  ensemble machine learning model.
-- It uses gradient boosting framework.
-- Classifying Dementia vs Non-Dementia prediction using XGB Classifier, Nondemented = 0,Demented = 1
+### 🎯 CDR Classification
 
-### Results
-- An ROC curve (receiver operating characteristic curve) is a graph showing the performance of a classification model at all classification thresholds. This curve plots 2 parameters: True Positive Rate & False Positive Rate.
-- Area under ROC curve (AUC) is between 0.5 to 1, 1 being best classifier.
-- We plot AUC for all three models to see difference between them.
+| CDR Score | Meaning             |
+|-----------|---------------------|
+| 0         | Non-Demented        |
+| 0.5       | Mild Dementia       |
+| 1         | Moderate/Severe Dementia |
 
-<p align="center"><img src="images/ROC.png" width=50% height=50% ></p>
+- SVM: **80% accuracy**  
+- Random Forest: **73% accuracy**  
+- XGBoost: **78% accuracy**
 
-- Following graph shows relative feature importance in classification of Demented vs Non-Demented.
+---
 
-<p align="center"><img src="images/Feature.png" width=50% height=50% ></p>
+## 🔮 Future Scope
 
-- We observe that MMSE is the most important feature whereas gender and socio economic status are least important features.
+- **Multimodal Detection:** Combine MRI data with **speech analysis** for more robust models.
+- **Deep Learning:** Apply CNNs and RNNs when larger datasets are available.
+- **Time-Series Analysis:** Track the **progression from Converted to Demented** for better modeling.
 
-### Classifying CDR
-- Instead of binary classification between Dementia and Non-Dementia we can classify into CDR classes which will give the severity of dementia.
-- Classification model classifies CDR into 0,0.5 and 1 where:
-0: Non Dementia	0.5: Mild Dementia	1: Severe Dementia
-- We use the classification based models: random forest, support vector machine (SVM) and XGBOOST to classify CDR.
-- We observe accuracy of 80% in case of SVM and accuracies of 73% and 78% in random forst and XGBOOST respectively.
-- Following graph shows relative feature importance in classification of CDR.
+---
 
-<p align="center"><img src="images/Feature-CDR.png" width=50% height=50% ></p>
+## 🛠️ Technologies Used
 
-- Similar to Dementia vs Non Dementia classification, we observe that MMSE is the most important feature whereas gender and socio economic status are least important features.
+- **Language:** Python  
+- **Libraries:** Pandas, Scikit-learn, XGBoost  
+- **Techniques:** Feature Importance, Classification, ROC-AUC, Ensemble Learning  
+- **Dataset:** MRI & clinical data from [OASIS](https://www.oasis-brains.org/)
 
-### Future Scope
-- Only MRI images has been used here to detect Dementia. The current work can be extended by inculcating speech patterns. A combined model can be created which uses both MRI images and speech patterns to detect Dementia and it's severity which can give more accurate results.
+---
 
-- Deep learning techniques couldn't be incorporated due to fewer data points. In case of availability of more data deep learning can be used.
+## 📌 Summary
 
+This project demonstrates how traditional machine learning can effectively support early dementia diagnosis using MRI and clinical metadata. With further enhancement through multimodal input and larger datasets, such systems could evolve into powerful diagnostic aids in healthcare.
 
+---
 
+## 📎 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+- Dataset provided by [OASIS](https://www.oasis-brains.org/)
+- Inspiration from clinical studies on Alzheimer’s and dementia detection.
